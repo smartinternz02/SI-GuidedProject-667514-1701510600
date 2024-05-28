@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>About Model</title>
+
+  <style>
+    .container-fluid{
+      display:flex;
+      justify-content: space-between;
+      background-color: rgba(66, 133, 81, 0.653);
+    }
+    .navbar{
+      display:flex;
+    }
+    .navbar ul{
+      font-size:2.5em;
+      display:flex;
+      gap:30px;
+     
+    }
+    a{
+      color:black;
+      text-decoration: none;
+      font-size: large;
+    }
+    p{
+      font-size: x-large;
+    }
+    strong,span{
+      font-size: x-large;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container-fluid">
+      <a href="{{ url_for('home') }}" class="logo">
+        <i class="bi bi-camera"></i>
+        <h1>Tomato Leaf Disease Prediction</h1>
+      </a>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}" class="active">About</a></li>
+          <li><a href="{{ url_for('predict') }}" >Predict</a></li>
+        
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+      <h2>About</h2>
+      <p>This model is developed used for detecting the diseases which can occur on tomato plants using the tomato leaf images.</p>
+    <section id="about" class="about">
+      <div class="container">
+            <h2>Details about the model</h2>
+            <div class="row">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Technology Used:</strong> <span>Convolutional Neural Networks</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Accuracy:</strong> <span>Correct prediction given 97 times out of 100</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Dataset Used:</strong> <span>Labelled Tomato Leaf Images</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Dataset Source:</strong> <span>Kaggle</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Programming Language:</strong> <span>Python</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Model:</strong> <span>ResNet152V2</span></li>
+                </ul>
+            </div>
+            <p class="py-3">
+              The problem specified is multiclass image classifaction. The model can predict the disease of the tomato plant when given a tomato leaf image as input.
+            </p>
+            <p class="m-0">
+              This prediction model can be used by farmers, agricultural scientists, biologists, gardeners and by the general audience to check the disease of the plant.
+              This prediction can be useful to save the plant by giving the right treatment for the predicted disease.
+            </p>
+      </div>
+    </section><!-- End About Section -->
+  </main><!-- End #main -->
+</body>
+</html>

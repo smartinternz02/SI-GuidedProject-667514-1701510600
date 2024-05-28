@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Prediction Page</title>
+
+  <style>
+    .container-fluid {
+      display: flex;
+      justify-content: space-between;
+      background-color: rgba(66, 133, 81, 0.653);
+      padding: 10px 20px;
+    }
+
+    .navbar {
+      display: flex;
+    }
+
+    .navbar ul {
+      font-size: 1.5em;
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    a {
+      color: black;
+      text-decoration: none;
+      font-size: large;
+    }
+
+    button {
+      height: 60px;
+      padding: 20px 30px;
+      border: none;
+      background-color: black;
+      color: white;
+      margin: 20px auto;
+      border-radius: 10px;
+      display: block;
+      font-size: x-large;
+    }
+
+    ul {
+      font-size: 1.5em;
+    }
+
+    .form-group {
+      margin: 20px 0;
+    }
+
+    #image-preview {
+      display: block;
+      margin: 20px auto;
+      max-width: 100%;
+    }
+    p{
+      font-size:x-large;
+    }
+    h2{
+      font-size:x-large;
+    }
+    label{
+      height: 30px;
+      width: 100px;
+      font-size:x-large;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container-fluid">
+      <a href="{{ url_for('home') }}" class="logo d-flex align-items-center me-auto me-lg-0">
+        <h1>Tomato Leaf Disease Prediction</h1>
+      </a>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('predict') }}" class="active">Predict</a></li>
+          
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <h2>Prediction Service</h2>
+      <p>Upload the image of a tomato leaf to detect the disease.</p>
+      <form id="form" action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="image">Choose Image:</label>
+          <input type="file" id="image" name="image" accept="image/*" onchange="previewImage();">
+        </div>
+        <img id="image-preview" src="#" alt="Image Preview" style="display:none;">
+        <button type="submit" class="cta-btn">Upload</button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    function previewImage() {
+      const file = document.getElementById('image').files[0];
+      const reader = new FileReader();
+      
+      reader.onloadend = function() {
+        const preview = document.getElementById('image-preview');
+        preview.src = reader.result;
+        preview.style.display = 'block';
+      }
+      
+      if (file) {
+        reader.readAsDataURL(file);
+      } else {
+        const preview = document.getElementById('image-preview');
+        preview.src = '#';
+        preview.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+
+</html>

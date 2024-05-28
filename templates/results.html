@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Result Page</title>
+
+</head>
+<style>
+  .container-fluid{
+    display:flex;
+    justify-content: space-between;
+    background-color: rgba(66, 133, 81, 0.653);
+  }
+  .navbar{
+    display:flex;
+  }
+  .navbar ul{
+    font-size:1.5em;
+    display:flex;
+    gap:30px;
+   
+  }
+  a{
+    color:black;
+    text-decoration: none;
+    font-size: large;
+  }
+  p{
+    font-size: xx-large;
+  }
+  h2{
+    font-size: xx-large;
+  }
+</style>
+<body>
+  <header class="header">
+    <div class="container-fluid">
+      <a href="{{ url_for('home') }}" class="logo d-flex align-items-center  me-auto me-lg-0">
+        <i class="bi bi-camera"></i>
+        <h1>Tomato Leaf Disease Prediction</h1>
+      </a>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('predict') }}" class="active">Predict</a></li>
+       
+        </ul>
+      </nav><!-- .navbar -->
+  </header><!-- End Header -->
+  <main id="main" >
+            <h2>Results</h2>
+            <p>Based on the image given as input, the AI model has predicted that there is a  high possibility for your plant {{prediction_text}}<p>
+            <p style="text-align: center; font-size: xx-large;"> </p>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>TOMATO LEAF DISEASE DETECTION</title>
+  <style>
+      .container-fluid{
+      display:flex;
+      justify-content: space-between;
+      background-color: rgba(66, 133, 81, 0.653);
+    }
+    .navbar{
+      display:flex;
+    }
+    .navbar ul{
+      font-size:1.5em;
+      display:flex;
+      gap:30px;
+     
+    }
+    a{
+      color:black;
+      text-decoration: none;
+      font-size: large;
+    }
+    h1{
+        color: black;
+        margin-bottom:20px
+    }
+    h2{
+        color:brown;
+        font-size:2em;
+        text-align: center;
+      }
+    footer{
+      text-align: center;
+      font-size: 2em;
+    }
+    p{
+        color: black;
+        font-size:1.8em;
+        text-align: center;
+    }
+    button{
+      height:50px;
+      padding:10px 30px;
+      border:none;
+      background-color: black;
+      color:white;
+      margin: 20px 600px;
+      border-radius: 10px;
+      font-size: x-large;
+    }
+  </style>
+</head>
+<body>
+  <header id="header" class="header">
+    <div class="container-fluid">
+      <a href="index.html" class="logo d-flex align-items-center  me-auto me-lg-0">
+        <i class="bi bi-camera"></i>
+        <h1>TOMATO LEAF DISEASE DETECTION</h1>
+      </a>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('predict') }}">Predict</a></li>
+         
+        </ul>       
+      </nav><!-- .navbar -->
+  </header><!-- End Header -->
+          <h2>Welcome to <span>Tomato Leaf Disease Prediction</span> </h2>
+          <p>This AI model will help you to detect if any disease or any abnormality is present in the tomato plant from the image of the tomato plant leaf.</p>
+    <a href="{{ url_for('predict')}}" class="btn-get-started"><button>Predict</button></a>
+</body>
+</html>
